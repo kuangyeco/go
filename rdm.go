@@ -1,11 +1,4 @@
-// Copyright GoFrame Author(https://goframe.org). All Rights Reserved.
-//
-// This Source Code Form is subject to the terms of the MIT License.
-// If a copy of the MIT was not distributed with this file,
-// You can obtain one at https://github.com/gogf/gf.
-
-// Package grand provides high performance random bytes/number/string generation functionality.
-package grand
+package rdm
 
 import (
 	"encoding/binary"
@@ -14,6 +7,7 @@ import (
 
 var (
 	letters    = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" // 52
+	charts    = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" // 62
 	symbols    = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"                   // 32
 	digits     = "0123456789"                                           // 10
 	characters = letters + digits + symbols                             // 94
@@ -153,6 +147,21 @@ func Letters(n int) string {
 	)
 	for i := range b {
 		b[i] = letters[numberBytes[i]%52]
+	}
+	return string(b)
+}
+
+// Charts returns a random string, and its length is `n`.
+func Charts(n int) string {
+	if n <= 0 {
+		return ""
+	}
+	var (
+		b           = make([]byte, n)
+		numberBytes = B(n)
+	)
+	for i := range b {
+		b[i] = charts[numberBytes[i]%52]
 	}
 	return string(b)
 }
