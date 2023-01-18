@@ -1,4 +1,4 @@
-package util
+package rmd
 
 import (
 	"encoding/binary"
