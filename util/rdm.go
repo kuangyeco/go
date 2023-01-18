@@ -1,4 +1,4 @@
-package rdm
+package util
 
 import (
 	"encoding/binary"
@@ -6,11 +6,11 @@ import (
 )
 
 var (
-	letters    = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" // 52
-	charts    = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" // 62
-	symbols    = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"                   // 32
-	digits     = "0123456789"                                           // 10
-	characters = letters + digits + symbols                             // 94
+	letters    = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"           // 52
+	charts     = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" // 62
+	symbols    = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"                             // 32
+	digits     = "0123456789"                                                     // 10
+	characters = letters + digits + symbols                                       // 94
 )
 
 // Intn returns an int number which is between 0 and max: [0, max).
